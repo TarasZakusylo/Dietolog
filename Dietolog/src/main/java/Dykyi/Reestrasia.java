@@ -4,9 +4,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Formatter;
-import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -117,10 +115,11 @@ public class Reestrasia extends JFrame {
 			private String s_PIP;
 			private String s_mail;
 
-			private Scanner scanner_Statistika;
-			private Formatter formatter_kilkist_korustuvaciv;
 			private Formatter formatter_reestracia;
-			private String s_Statistika = "";
+			private String s_reestracia;
+
+			private int i_korektnist = 0;
+			private int i_korektnist1 = 0;
 
 			@SuppressWarnings("deprecation")
 
@@ -138,46 +137,53 @@ public class Reestrasia extends JFrame {
 				} else {
 
 					int blockCount = s_PIP.split(" ").length;
-					
-					if ( blockCount != 2 ) {
+
+					if (blockCount != 2) {
 						JOptionPane.showMessageDialog(null, "Некоректне ім'я чи прізвище");
-					} else { 
-						JOptionPane.showMessageDialog(null, "далі");
-//						шукаємо симвори в імені
-						
-					}
-					
-					try {
-						scanner_Statistika = new Scanner(new File("res/Statistika/kilkist_korustuvaciv.txt"));
-					} catch (FileNotFoundException e1) {
-						JOptionPane.showMessageDialog(null,
-								"У системі не вистачає файлів, зверніться, будь ласка, до адміністратора");
-					}
+					} else {
+						char[] chars = s_PIP.toCharArray();
+						for (int i = 0; i < chars.length; i++) {
+							try {
+								if (chars[i] == '1' || chars[i] == '0' || chars[i] == '(' || chars[i] == ')'
+										|| chars[i] == '+' || chars[i] == '=' || chars[i] == '/' || chars[i] == '.'
+										|| chars[i] == ',') {
+									i_korektnist++;
+								}
+							} catch (Exception e) {
+							}
+						}
+						char[] chars1 = s_mail.toCharArray();
+						for (int i = 0; i < chars1.length; i++) {
+							try {
+								if (chars1[i] == '@') {
+									i_korektnist1 = 1;
+								}
+							} catch (Exception e) {
+							}
+						}
+						if (i_korektnist == 0 && i_korektnist1 == 1) {
 
-					while (scanner_Statistika.hasNext()) {
-						s_Statistika = s_Statistika + scanner_Statistika.next();
-					}
-					scanner_Statistika.close();
-					
-					int i_Statistika = Integer.parseInt(s_Statistika) + 1;
-					s_Statistika = "" + i_Statistika;
+							try {
+								formatter_reestracia = new Formatter("res/Avtoruzacia/" + s_Login + ".txt");
+							} catch (Exception e) {
+								JOptionPane.showMessageDialog(null, "System Error");
+							}
 
-					try {
-						formatter_kilkist_korustuvaciv = new Formatter("res/Statistika/kilkist_korustuvaciv.txt");
-					} catch (Exception e) {
-						JOptionPane.showMessageDialog(null, "System Error");
-					}
-					formatter_kilkist_korustuvaciv.format(s_Statistika);
-					formatter_kilkist_korustuvaciv.close();
-					
-//					try {
-//						formatter_reestracia = new Formatter("res/Avtoruzacia/" + s_Login + ".txt");
-//					} catch (Exception e) {
-//						JOptionPane.showMessageDialog(null, "System Error");
-//					}
-//					formatter_reestracia.format( );
-//					formatter_reestracia.close();
+							s_reestracia = s_Password + " " + s_PIP + " " + s_mail;
 
+							formatter_reestracia.format(s_reestracia);
+							formatter_reestracia.close();
+
+							JOptionPane.showMessageDialog(null, "Зареєстровано");
+							new Avtor("Дієтолог");
+							setVisible(false);
+
+						} else {
+							JOptionPane.showMessageDialog(null, "Перевірте введення");
+						}
+						i_korektnist = 0;
+
+					}
 				}
 
 			}

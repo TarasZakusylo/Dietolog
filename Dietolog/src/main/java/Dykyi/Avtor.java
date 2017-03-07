@@ -76,6 +76,9 @@ public class Avtor extends JFrame {
 			private Scanner scanner_Avtoruzacia;
 			private String s_Avtoruzacia;
 
+			String[][] Reading = new String[1][4];
+			String Reading1;
+
 			@SuppressWarnings("deprecation")
 
 			public void actionPerformed(ActionEvent arg0) {
@@ -89,8 +92,19 @@ public class Avtor extends JFrame {
 				}
 
 				while (scanner_Avtoruzacia.hasNext()) {
-					s_Avtoruzacia = scanner_Avtoruzacia.next();
+					for (int row = 0; row < Reading.length; row++) {
+						Reading1 = " ";
+
+						for (int col = 0; col < Reading[row].length; col++) {
+							Reading[row][col] = scanner_Avtoruzacia.next();
+							if (col == 0) {
+								Reading1 = Reading[row][col];
+							}
+						}
+					}
 				}
+				s_Avtoruzacia = Reading1;
+				System.out.println(s_Avtoruzacia);
 				scanner_Avtoruzacia.close();
 
 				if (s_Password.equals(s_Avtoruzacia)) {
