@@ -22,7 +22,7 @@ public class Menu extends JFrame {
 		JButton b_Diagnistika = new JButton("Діагностика");
 		b_Diagnistika.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				new Diagnistika("Дієтолог");
+				new Diagnostika("Дієтолог");
 				setVisible(false);
 			}
 		});

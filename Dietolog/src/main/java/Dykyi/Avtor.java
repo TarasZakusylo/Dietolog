@@ -103,8 +103,7 @@ public class Avtor extends JFrame {
 						}
 					}
 				}
-				s_Avtoruzacia = Reading1;
-				System.out.println(s_Avtoruzacia);
+				s_Avtoruzacia = Reading1; 
 				scanner_Avtoruzacia.close();
 
 				if (s_Password.equals(s_Avtoruzacia)) {
