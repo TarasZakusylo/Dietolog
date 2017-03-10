@@ -99,10 +99,10 @@ public class Diagnostika extends JFrame {
 		choice_Stat.add("чоловіча");
 		choice_Stat.add("жіноча");
 
-		l_putanna = new JLabel("1-5");
+		l_putanna = new JLabel("1-5/25");
 		l_putanna.setFont(new Font("Times New Roman", Font.BOLD, 25));
 		l_putanna.setHorizontalAlignment(SwingConstants.CENTER);
-		l_putanna.setBounds(12, 623, 56, 49);
+		l_putanna.setBounds(12, 623, 84, 49);
 		getContentPane().add(l_putanna);
 
 		b_dali = new Button("Перейти до інших запитань");
@@ -145,8 +145,28 @@ public class Diagnostika extends JFrame {
 
 										String s_Stat = choice_Stat.getSelectedItem();
 										String s_Profesia = choice_Profesia.getSelectedItem();
+										int i_Stat = 0;
+										int i_Profesia = 0;
 
-										new Diagnostika1(i_RikNarodgenna, s_Stat, i_Zrist, i_Vaga, s_Profesia);
+										switch (s_Stat) {
+										case "чоловіча": {
+											i_Stat = 0;
+										}
+											break;
+										case "жіноча": {
+											i_Stat = 1;
+										}
+											break;
+										}
+
+										switch (s_Profesia) {
+										case "студент": {
+											i_Profesia = 0;
+										}
+											break;
+										}
+
+										new Diagnostika1(i_RikNarodgenna, i_Stat, i_Zrist, i_Vaga, i_Profesia);
 										setVisible(false);
 
 									} else {
@@ -178,11 +198,11 @@ public class Diagnostika extends JFrame {
 		b_Menu = new Button("Меню");
 		b_Menu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Object[] options = { "Так, перейти", "Ні, залишитись"};
+				Object[] options = { "Так, перейти", "Ні, залишитись" };
 				int i_menu = JOptionPane.showOptionDialog(null, "Бажаєте перейти в меню ? Введені дані не збережуться.",
-						"Попередження", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,
-						options,  null);
-				if(i_menu==0){
+						"Попередження", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options,
+						null);
+				if (i_menu == 0) {
 					new Menu("Дієтолог");
 					setVisible(false);
 				}

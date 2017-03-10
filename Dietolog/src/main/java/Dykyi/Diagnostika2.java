@@ -30,8 +30,9 @@ public class Diagnostika2 extends JFrame {
 	private JLabel l_putanna2;
 	private Button b_dali2;
 
-	public Diagnostika2(int i_RikNarodgenna, String s_Stat, int i_Zrist, int i_Vaga, String s_Profesia,
-			String s_choice_6, String s_choice_7, String s_choice_8, String s_choice_9, String s_choice_10) {
+	public Diagnostika2(final int i_RikNarodgenna, final int i_Stat, final int i_Zrist, final int i_Vaga,
+			final int i_Profesia, final int i_choice_6, final int i_choice_7, final int i_choice_8,
+			final int i_choice_9, final int i_choice_10) {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1280, 720);
@@ -51,9 +52,9 @@ public class Diagnostika2 extends JFrame {
 		choice_11 = new Choice();
 		choice_11.setBounds(316, 90, 177, 36);
 		getContentPane().add(choice_11);
-		choice_11.add("4-5 і більше ");
-		choice_11.add("3 рази");
-		choice_11.add("2 рази і менше");
+		choice_11.add("Основа мого раціону");
+		choice_11.add("Сумарно десь тарілочку на тиждень");
+		choice_11.add("Майже не їм");
 
 		l_12 = new JLabel("Скільки рідини випиваєте за день ?");
 		l_12.setBounds(32, 136, 281, 36);
@@ -62,10 +63,9 @@ public class Diagnostika2 extends JFrame {
 		choice_12 = new Choice();
 		choice_12.setBounds(316, 139, 177, 22);
 		getContentPane().add(choice_12);
-		choice_12.add("Ранком");
-		choice_12.add("Вобід");
-		choice_12.add("Ввечері");
-		choice_12.add("Вночі");
+		choice_12.add("Не менше 2,5 літрів різноманітних напоїв");
+		choice_12.add("Кілька кружок чаю чи кави");
+		choice_12.add("Чашечку кави ранком та чашечку ввечері");
 
 		l_13 = new JLabel("Буває у Вас після прийому їжі важкість ?");
 		l_13.setBounds(32, 195, 281, 36);
@@ -74,10 +74,10 @@ public class Diagnostika2 extends JFrame {
 		choice_13 = new Choice();
 		choice_13.setBounds(316, 195, 177, 22);
 		getContentPane().add(choice_13);
-		choice_13.add("До 22");
-		choice_13.add("Близько 23");
-		choice_13.add("Близько опівночі");
-		choice_13.add("Після першої");
+		choice_13.add("Ніколи");
+		choice_13.add("Дуже рідко");
+		choice_13.add("Іноді після вечері");
+		choice_13.add("Постійно");
 
 		l_14 = new JLabel("Займаєтесь спортом, додатковими фізичними навантаженнями ?");
 		l_14.setBounds(32, 256, 281, 36);
@@ -86,9 +86,10 @@ public class Diagnostika2 extends JFrame {
 		choice_14 = new Choice();
 		choice_14.setBounds(316, 256, 177, 22);
 		getContentPane().add(choice_14);
-		choice_14.add("Кислі");
-		choice_14.add("Солодкі");
-		choice_14.add("Сольоні");
+		choice_14.add("Спорт у мене в крові");
+		choice_14.add("1-2 рази на таждень");
+		choice_14.add("Дуже рідко");
+		choice_14.add("Ніколи, це не для мене");
 
 		l_15 = new JLabel("Як ви ставитесь до вегетаріанства ?");
 		l_15.setBounds(32, 320, 281, 36);
@@ -97,31 +98,119 @@ public class Diagnostika2 extends JFrame {
 		choice_15 = new Choice();
 		choice_15.setBounds(316, 320, 175, 28);
 		getContentPane().add(choice_15);
-		choice_15.add("До 18");
-		choice_15.add("Близько 20");
-		choice_15.add("Близько 22");
-		choice_15.add("Після 24");
+		choice_15.add("Я вегетеріанець");
+		choice_15.add("Цікавлюсь цим");
+		choice_15.add("Це не для мене");
 
-		l_putanna2 = new JLabel("11-15");
+		l_putanna2 = new JLabel("11-15/25");
 		l_putanna2.setHorizontalAlignment(SwingConstants.CENTER);
 		l_putanna2.setFont(new Font("Times New Roman", Font.BOLD, 25));
-		l_putanna2.setBounds(12, 614, 82, 49);
+		l_putanna2.setBounds(12, 614, 125, 49);
 		getContentPane().add(l_putanna2);
 
 		b_dali2 = new Button("Перейти до інших запитань");
 		b_dali2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				String s_choice_6 = choice_11.getSelectedItem();
-				String s_choice_7 = choice_12.getSelectedItem();
-				String s_choice_8 = choice_13.getSelectedItem();
-				String s_choice_9 = choice_14.getSelectedItem();
-				String s_choice_10 = choice_15.getSelectedItem();
+				String s_choice_11 = choice_11.getSelectedItem();
+				String s_choice_12 = choice_12.getSelectedItem();
+				String s_choice_13 = choice_13.getSelectedItem();
+				String s_choice_14 = choice_14.getSelectedItem();
+				String s_choice_15 = choice_15.getSelectedItem();
 
-				// new Diagnostika2(i_RikNarodgenna, s_Stat, i_Zrist, i_Vaga,
-				// s_Profesia, s_choice_6, s_choice_7, s_choice_8, s_choice_9,
-				// s_choice_10);
-				// setVisible(false);
+				int i_choice_11 = 0;
+				int i_choice_12 = 0;
+				int i_choice_13 = 0;
+				int i_choice_14 = 0;
+				int i_choice_15 = 0;
+
+				switch (s_choice_11) {
+				case "Основа мого раціону": {
+					i_choice_11 = 0;
+				}
+					break;
+				case "Сумарно десь тарілочку на тиждень": {
+					i_choice_11 = 1;
+				}
+					break;
+				case "Майже не їм": {
+					i_choice_11 = 2;
+				}
+					break;
+				}
+
+				switch (s_choice_12) {
+				case "Не менше 2 літрів різноманітних напоїв": {
+					i_choice_12 = 0;
+				}
+					break;
+				case "Кілька кружок чаю чи кави": {
+					i_choice_12 = 1;
+				}
+					break;
+				case "Чашечку кави ранком та чашечку ввечері": {
+					i_choice_12 = 2;
+				}
+					break;
+				}
+
+				switch (s_choice_13) {
+				case "Ніколи": {
+					i_choice_13 = 0;
+				}
+					break;
+				case "Дуже рідко": {
+					i_choice_13 = 1;
+				}
+					break;
+				case "Іноді після вечері": {
+					i_choice_13 = 2;
+				}
+					break;
+				case "Постійно": {
+					i_choice_13 = 3;
+				}
+					break;
+				}
+			 
+				switch (s_choice_14) {
+				case "Спорт у мене в крові": {
+					i_choice_14 = 0;
+				}
+					break;
+				case "1-2 рази на таждень": {
+					i_choice_14 = 1;
+				}
+					break;
+				case "Дуже рідко": {
+					i_choice_14 = 2;
+				}
+					break;
+				case "Ніколи, це не для мене": {
+					i_choice_14 = 3;
+				}
+					break;
+				}
+				
+				switch (s_choice_15) {
+				case "Я вегетеріанець": {
+					i_choice_15 = 0;
+				}
+					break;
+				case "Цікавлюсь цим": {
+					i_choice_15 = 1;
+				}
+					break;
+				case "Це не для мене": {
+					i_choice_15 = 2;
+				}
+					break;
+				}
+
+				new Diagnostika3(i_RikNarodgenna, i_Stat, i_Zrist, i_Vaga, i_Profesia, i_choice_6, i_choice_7,
+						i_choice_8, i_choice_9, i_choice_10, i_choice_11, i_choice_12, i_choice_13, i_choice_14,
+						i_choice_15);
+				setVisible(false);
 			}
 		});
 		b_dali2.setBounds(286, 603, 214, 36);
