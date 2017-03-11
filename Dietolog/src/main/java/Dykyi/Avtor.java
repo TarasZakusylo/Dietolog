@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.Formatter;
 import java.util.Scanner;
 
 import javax.swing.JButton;
@@ -77,7 +78,10 @@ public class Avtor extends JFrame {
 			private String s_Avtoruzacia;
 
 			String[][] Reading = new String[1][4];
-			String Reading1;
+			private String Reading_Password;
+			private String Reading_Name;
+			private String Reading_Prizvusko;
+			private Formatter formatter_RobocuyProfil;
 
 			@SuppressWarnings("deprecation")
 
@@ -93,21 +97,40 @@ public class Avtor extends JFrame {
 
 				while (scanner_Avtoruzacia.hasNext()) {
 					for (int row = 0; row < Reading.length; row++) {
-						Reading1 = " ";
-
+						Reading_Password = " ";
+						Reading_Name = " ";
+						Reading_Prizvusko = " ";
 						for (int col = 0; col < Reading[row].length; col++) {
 							Reading[row][col] = scanner_Avtoruzacia.next();
 							if (col == 0) {
-								Reading1 = Reading[row][col];
+								Reading_Password = Reading[row][col];
 							}
+							if (col == 1) {
+								Reading_Name = Reading[row][col];
+							}
+							if (col == 2) {
+								Reading_Prizvusko = Reading[row][col];
+							}
+
 						}
 					}
 				}
-				s_Avtoruzacia = Reading1; 
+				s_Avtoruzacia = Reading_Password;
 				scanner_Avtoruzacia.close();
 
 				if (s_Password.equals(s_Avtoruzacia)) {
 					JOptionPane.showMessageDialog(null, "Вітаю, Ви в системі");
+
+					String s_Korustuvac = Reading_Name + " " + Reading_Prizvusko;
+
+					try {
+						formatter_RobocuyProfil = new Formatter("res/TumcasoviFaylu/Korustuvac.txt");
+					} catch (Exception e) {
+						JOptionPane.showMessageDialog(null, "System Error");
+					}
+					formatter_RobocuyProfil.format(s_Korustuvac);
+					formatter_RobocuyProfil.close();
+
 					new Menu("Дієтолог");
 					setVisible(false);
 				} else {
