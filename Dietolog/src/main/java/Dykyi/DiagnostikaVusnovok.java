@@ -271,7 +271,7 @@ public class DiagnostikaVusnovok {
 //			if(i_Reading_6 != i_RikNarodgenna){
 //				s_Error = s_Error + "Помилкове введення пройдіть опитування, буль ласка опитування ще раз. Зверніть увагу на рік народження";
 //			}
-			
+		// динаміка	характеристик
 			File []fList;        
 			File F = new File("res/Avtoruzacia");			        
 			fList = F.listFiles();
