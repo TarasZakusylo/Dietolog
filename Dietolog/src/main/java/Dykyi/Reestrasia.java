@@ -34,38 +34,38 @@ public class Reestrasia extends JFrame {
 		super(s);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(1280, 720);
+		setSize(1000, 600);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 
 		label_NazvaVikna = new JLabel("Реєстрація");
-		label_NazvaVikna.setBounds(12, 13, 1250, 88);
+		label_NazvaVikna.setBounds(12, 30, 497, 88);
 		label_NazvaVikna.setFont(new Font("Monotype Corsiva", Font.BOLD, 55));
 		label_NazvaVikna.setHorizontalAlignment(SwingConstants.CENTER);
 		getContentPane().add(label_NazvaVikna);
 
 		label_Login = new JLabel("Логін");
-		label_Login.setBounds(78, 124, 231, 29);
+		label_Login.setBounds(12, 149, 231, 29);
 		label_Login.setHorizontalAlignment(SwingConstants.CENTER);
 		label_Login.setFont(new Font("Times New Roman", Font.ITALIC, 30));
 		getContentPane().add(label_Login);
 
 		textField_Login = new JTextField();
-		textField_Login.setBounds(78, 176, 231, 36);
+		textField_Login.setBounds(12, 201, 231, 36);
 		textField_Login.setToolTipText("");
 		textField_Login.setText("1");
 		textField_Login.setColumns(10);
 		getContentPane().add(textField_Login);
 
 		label_Password = new JLabel("Пароль");
-		label_Password.setBounds(78, 269, 231, 29);
+		label_Password.setBounds(12, 294, 231, 29);
 		label_Password.setHorizontalAlignment(SwingConstants.CENTER);
 		label_Password.setFont(new Font("Times New Roman", Font.ITALIC, 30));
 		getContentPane().add(label_Password);
 
 		passwordField_Password = new JPasswordField();
-		passwordField_Password.setBounds(78, 322, 231, 36);
+		passwordField_Password.setBounds(12, 347, 231, 36);
 		passwordField_Password.setToolTipText("");
 		passwordField_Password.setText("1");
 		getContentPane().add(passwordField_Password);
@@ -77,37 +77,37 @@ public class Reestrasia extends JFrame {
 				setVisible(false);
 			}
 		});
-		button_Nazad.setBounds(78, 421, 231, 36);
+		button_Nazad.setBounds(12, 446, 231, 36);
 		button_Nazad.setFont(new Font("Times New Roman", Font.ITALIC, 30));
 		getContentPane().add(button_Nazad);
 
 		label_PIP = new JLabel("Ім'я та Прізвище");
-		label_PIP.setBounds(426, 124, 231, 29);
+		label_PIP.setBounds(278, 149, 231, 29);
 		label_PIP.setHorizontalAlignment(SwingConstants.CENTER);
 		label_PIP.setFont(new Font("Times New Roman", Font.ITALIC, 30));
 		getContentPane().add(label_PIP);
 
 		textField_PIP = new JTextField();
-		textField_PIP.setBounds(426, 176, 231, 36);
+		textField_PIP.setBounds(278, 201, 231, 36);
 		textField_PIP.setToolTipText("");
 		textField_PIP.setText("1");
 		textField_PIP.setColumns(10);
 		getContentPane().add(textField_PIP);
 
 		label_email = new JLabel("e-mail");
-		label_email.setBounds(426, 269, 231, 29);
+		label_email.setBounds(278, 294, 231, 29);
 		label_email.setHorizontalAlignment(SwingConstants.CENTER);
 		label_email.setFont(new Font("Times New Roman", Font.ITALIC, 30));
 		getContentPane().add(label_email);
 
 		textField_mail = new JTextField();
-		textField_mail.setBounds(426, 322, 231, 36);
+		textField_mail.setBounds(278, 347, 231, 36);
 		textField_mail.setToolTipText("");
 		textField_mail.setText("1");
 		getContentPane().add(textField_mail);
 
 		button_Gotovo = new JButton("Готово");
-		button_Gotovo.setBounds(426, 421, 231, 36);
+		button_Gotovo.setBounds(278, 446, 231, 36);
 		button_Gotovo.addActionListener(new ActionListener() {
 
 			private String s_Login;

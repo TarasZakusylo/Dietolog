@@ -4,10 +4,13 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.util.Formatter;
 import java.util.Scanner;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -28,48 +31,53 @@ public class Avtor extends JFrame {
 	private JButton b_Yvijtu;
 	private JButton b_Reestracia;
 
+	private JLabel l_fon;
+
 	public Avtor(String s) {
 		super(s);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(1280, 720);
+		setSize(1000, 600);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 
 		Label_NazvaEmblema = new JLabel("ДІЄТОЛОГ");
-		Label_NazvaEmblema.setForeground(new Color(0, 0, 0));
+		Label_NazvaEmblema.setForeground(Color.MAGENTA);
 		Label_NazvaEmblema.setFont(new Font("Monotype Corsiva", Font.BOLD, 55));
 		Label_NazvaEmblema.setHorizontalAlignment(SwingConstants.CENTER);
-		Label_NazvaEmblema.setBounds(12, 13, 1250, 99);
+		Label_NazvaEmblema.setBounds(12, 13, 686, 99);
 		getContentPane().add(Label_NazvaEmblema);
 
 		label_Login = new JLabel("Логін");
+		label_Login.setForeground(Color.MAGENTA);
 		label_Login.setHorizontalAlignment(SwingConstants.CENTER);
 		label_Login.setFont(new Font("Times New Roman", Font.ITALIC, 30));
-		label_Login.setBounds(138, 193, 231, 29);
+		label_Login.setBounds(64, 125, 231, 29);
 		getContentPane().add(label_Login);
 
 		textField_Login = new JTextField();
 		textField_Login.setToolTipText("");
 		textField_Login.setText("1");
-		textField_Login.setBounds(138, 245, 231, 36);
+		textField_Login.setBounds(64, 177, 231, 36);
 		getContentPane().add(textField_Login);
 		textField_Login.setColumns(10);
 
 		label_Password = new JLabel("Пароль");
+		label_Password.setForeground(Color.MAGENTA);
 		label_Password.setHorizontalAlignment(SwingConstants.CENTER);
 		label_Password.setFont(new Font("Times New Roman", Font.ITALIC, 30));
-		label_Password.setBounds(140, 338, 231, 29);
+		label_Password.setBounds(66, 270, 231, 29);
 		getContentPane().add(label_Password);
 
 		passwordField_Password = new JPasswordField();
 		passwordField_Password.setToolTipText("");
 		passwordField_Password.setText("1");
-		passwordField_Password.setBounds(138, 391, 231, 36);
+		passwordField_Password.setBounds(64, 312, 231, 36);
 		getContentPane().add(passwordField_Password);
 
 		b_Yvijtu = new JButton("Увійти");
+		b_Yvijtu.setForeground(Color.ORANGE);
 		b_Yvijtu.addActionListener(new ActionListener() {
 			private String s_Login;
 			private String s_Password;
@@ -141,10 +149,11 @@ public class Avtor extends JFrame {
 			}
 		});
 		b_Yvijtu.setFont(new Font("Times New Roman", Font.ITALIC, 30));
-		b_Yvijtu.setBounds(138, 490, 231, 36);
+		b_Yvijtu.setBounds(64, 391, 231, 36);
 		getContentPane().add(b_Yvijtu);
 
 		b_Reestracia = new JButton("Реєстрація");
+		b_Reestracia.setForeground(Color.ORANGE);
 		b_Reestracia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				new Reestrasia("Дієтолог");
@@ -152,8 +161,13 @@ public class Avtor extends JFrame {
 			}
 		});
 		b_Reestracia.setFont(new Font("Times New Roman", Font.ITALIC, 30));
-		b_Reestracia.setBounds(138, 525, 231, 36);
+		b_Reestracia.setBounds(64, 457, 231, 36);
 		getContentPane().add(b_Reestracia);
+		
+		l_fon = new JLabel("");
+		l_fon.setIcon(new ImageIcon("res/fon/Avtor.jpg"));
+		l_fon.setBounds(-1, 0, 995, 572);
+		getContentPane().add(l_fon);
 
 		setVisible(true);
 	}
