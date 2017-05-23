@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.Formatter;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,6 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import java.awt.Color;
 
 public class Reestrasia extends JFrame {
 
@@ -30,6 +32,8 @@ public class Reestrasia extends JFrame {
 	private JTextField textField_mail;
 	private JButton button_Gotovo;
 
+	private JLabel l_fon;
+
 	public Reestrasia(String s) {
 		super(s);
 
@@ -40,12 +44,14 @@ public class Reestrasia extends JFrame {
 		getContentPane().setLayout(null);
 
 		label_NazvaVikna = new JLabel("Реєстрація");
+		label_NazvaVikna.setForeground(new Color(255, 0, 255));
 		label_NazvaVikna.setBounds(12, 30, 497, 88);
 		label_NazvaVikna.setFont(new Font("Monotype Corsiva", Font.BOLD, 55));
 		label_NazvaVikna.setHorizontalAlignment(SwingConstants.CENTER);
 		getContentPane().add(label_NazvaVikna);
 
 		label_Login = new JLabel("Логін");
+		label_Login.setForeground(new Color(255, 0, 255));
 		label_Login.setBounds(12, 149, 231, 29);
 		label_Login.setHorizontalAlignment(SwingConstants.CENTER);
 		label_Login.setFont(new Font("Times New Roman", Font.ITALIC, 30));
@@ -59,6 +65,7 @@ public class Reestrasia extends JFrame {
 		getContentPane().add(textField_Login);
 
 		label_Password = new JLabel("Пароль");
+		label_Password.setForeground(new Color(255, 0, 255));
 		label_Password.setBounds(12, 294, 231, 29);
 		label_Password.setHorizontalAlignment(SwingConstants.CENTER);
 		label_Password.setFont(new Font("Times New Roman", Font.ITALIC, 30));
@@ -71,6 +78,7 @@ public class Reestrasia extends JFrame {
 		getContentPane().add(passwordField_Password);
 
 		button_Nazad = new JButton("Назад");
+		button_Nazad.setForeground(new Color(255, 165, 0));
 		button_Nazad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Avtor("Дієтолог");
@@ -82,6 +90,7 @@ public class Reestrasia extends JFrame {
 		getContentPane().add(button_Nazad);
 
 		label_PIP = new JLabel("Ім'я та Прізвище");
+		label_PIP.setForeground(new Color(255, 0, 255));
 		label_PIP.setBounds(278, 149, 231, 29);
 		label_PIP.setHorizontalAlignment(SwingConstants.CENTER);
 		label_PIP.setFont(new Font("Times New Roman", Font.ITALIC, 30));
@@ -95,6 +104,7 @@ public class Reestrasia extends JFrame {
 		getContentPane().add(textField_PIP);
 
 		label_email = new JLabel("e-mail");
+		label_email.setForeground(new Color(255, 0, 255));
 		label_email.setBounds(278, 294, 231, 29);
 		label_email.setHorizontalAlignment(SwingConstants.CENTER);
 		label_email.setFont(new Font("Times New Roman", Font.ITALIC, 30));
@@ -107,6 +117,7 @@ public class Reestrasia extends JFrame {
 		getContentPane().add(textField_mail);
 
 		button_Gotovo = new JButton("Готово");
+		button_Gotovo.setForeground(new Color(255, 165, 0));
 		button_Gotovo.setBounds(278, 446, 231, 36);
 		button_Gotovo.addActionListener(new ActionListener() {
 
@@ -190,8 +201,18 @@ public class Reestrasia extends JFrame {
 		});
 		button_Gotovo.setFont(new Font("Times New Roman", Font.ITALIC, 30));
 		getContentPane().add(button_Gotovo);
-
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("res/fon/Reestracia1.jpg"));
+		label.setBounds(552, 34, 430, 505);
+		getContentPane().add(label);
+		
+				l_fon = new JLabel("");
+				l_fon.setForeground(Color.WHITE);
+				l_fon.setIcon(new ImageIcon("res/fon/Reestracia.png"));
+				l_fon.setBounds(-1, 0, 995, 572);
+				getContentPane().add(l_fon);
+		
 		setVisible(true);
 	}
-
 }

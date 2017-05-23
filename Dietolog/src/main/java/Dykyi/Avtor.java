@@ -99,10 +99,7 @@ public class Avtor extends JFrame {
 
 				try {
 					scanner_Avtoruzacia = new Scanner(new File("res/Avtoruzacia/" + s_Login + ".txt"));
-				} catch (Exception e) {
-					JOptionPane.showMessageDialog(null, "Помилка введення");
-				}
-
+				
 				while (scanner_Avtoruzacia.hasNext()) {
 					for (int row = 0; row < Reading.length; row++) {
 						Reading_Password = " ";
@@ -145,7 +142,9 @@ public class Avtor extends JFrame {
 					JOptionPane.showMessageDialog(null, "Помилка введення");
 					passwordField_Password.setText("");
 				}
-
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "Помилка введення");
+				}
 			}
 		});
 		b_Yvijtu.setFont(new Font("Times New Roman", Font.ITALIC, 30));
