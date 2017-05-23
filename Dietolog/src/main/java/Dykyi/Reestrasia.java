@@ -201,18 +201,18 @@ public class Reestrasia extends JFrame {
 		});
 		button_Gotovo.setFont(new Font("Times New Roman", Font.ITALIC, 30));
 		getContentPane().add(button_Gotovo);
-		
+
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon("res/fon/Reestracia1.jpg"));
 		label.setBounds(552, 34, 430, 505);
 		getContentPane().add(label);
-		
-				l_fon = new JLabel("");
-				l_fon.setForeground(Color.WHITE);
-				l_fon.setIcon(new ImageIcon("res/fon/Reestracia.png"));
-				l_fon.setBounds(-1, 0, 995, 572);
-				getContentPane().add(l_fon);
-		
+
+		l_fon = new JLabel("");
+		l_fon.setForeground(Color.WHITE);
+		l_fon.setIcon(new ImageIcon("res/fon/Reestracia.png"));
+		l_fon.setBounds(-1, 0, 995, 572);
+		getContentPane().add(l_fon);
+
 		setVisible(true);
 	}
 }

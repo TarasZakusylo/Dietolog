@@ -99,49 +99,49 @@ public class Avtor extends JFrame {
 
 				try {
 					scanner_Avtoruzacia = new Scanner(new File("res/Avtoruzacia/" + s_Login + ".txt"));
-				
-				while (scanner_Avtoruzacia.hasNext()) {
-					for (int row = 0; row < Reading.length; row++) {
-						Reading_Password = " ";
-						Reading_Name = " ";
-						Reading_Prizvusko = " ";
-						for (int col = 0; col < Reading[row].length; col++) {
-							Reading[row][col] = scanner_Avtoruzacia.next();
-							if (col == 0) {
-								Reading_Password = Reading[row][col];
-							}
-							if (col == 1) {
-								Reading_Name = Reading[row][col];
-							}
-							if (col == 2) {
-								Reading_Prizvusko = Reading[row][col];
-							}
 
+					while (scanner_Avtoruzacia.hasNext()) {
+						for (int row = 0; row < Reading.length; row++) {
+							Reading_Password = " ";
+							Reading_Name = " ";
+							Reading_Prizvusko = " ";
+							for (int col = 0; col < Reading[row].length; col++) {
+								Reading[row][col] = scanner_Avtoruzacia.next();
+								if (col == 0) {
+									Reading_Password = Reading[row][col];
+								}
+								if (col == 1) {
+									Reading_Name = Reading[row][col];
+								}
+								if (col == 2) {
+									Reading_Prizvusko = Reading[row][col];
+								}
+
+							}
 						}
 					}
-				}
-				s_Avtoruzacia = Reading_Password;
-				scanner_Avtoruzacia.close();
+					s_Avtoruzacia = Reading_Password;
+					scanner_Avtoruzacia.close();
 
-				if (s_Password.equals(s_Avtoruzacia)) {
-					JOptionPane.showMessageDialog(null, "Вітаю, Ви в системі");
+					if (s_Password.equals(s_Avtoruzacia)) {
+						JOptionPane.showMessageDialog(null, "Вітаю, Ви в системі");
 
-					String s_Korustuvac = Reading_Name + " " + Reading_Prizvusko;
+						String s_Korustuvac = Reading_Name + " " + Reading_Prizvusko;
 
-					try {
-						formatter_RobocuyProfil = new Formatter("res/TumcasoviFaylu/Korustuvac.txt");
-					} catch (Exception e) {
-						JOptionPane.showMessageDialog(null, "System Error");
+						try {
+							formatter_RobocuyProfil = new Formatter("res/TumcasoviFaylu/Korustuvac.txt");
+						} catch (Exception e) {
+							JOptionPane.showMessageDialog(null, "System Error");
+						}
+						formatter_RobocuyProfil.format(s_Korustuvac);
+						formatter_RobocuyProfil.close();
+
+						new Menu("Дієтолог");
+						setVisible(false);
+					} else {
+						JOptionPane.showMessageDialog(null, "Помилка введення");
+						passwordField_Password.setText("");
 					}
-					formatter_RobocuyProfil.format(s_Korustuvac);
-					formatter_RobocuyProfil.close();
-
-					new Menu("Дієтолог");
-					setVisible(false);
-				} else {
-					JOptionPane.showMessageDialog(null, "Помилка введення");
-					passwordField_Password.setText("");
-				}
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, "Помилка введення");
 				}
@@ -162,7 +162,7 @@ public class Avtor extends JFrame {
 		b_Reestracia.setFont(new Font("Times New Roman", Font.ITALIC, 30));
 		b_Reestracia.setBounds(64, 457, 231, 36);
 		getContentPane().add(b_Reestracia);
-		
+
 		l_fon = new JLabel("");
 		l_fon.setIcon(new ImageIcon("res/fon/Avtor.jpg"));
 		l_fon.setBounds(-1, 0, 995, 572);
