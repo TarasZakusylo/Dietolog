@@ -14,7 +14,7 @@ import java.awt.Font;
 public class Menu extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private JLabel l_fon;
 
 	public Menu(String s) {
@@ -85,7 +85,7 @@ public class Menu extends JFrame {
 		});
 		b_Racion.setBounds(12, 407, 282, 42);
 		getContentPane().add(b_Racion);
-		
+
 		JButton b_ZvernennaDoLakara = new JButton("Звернення до лікаря");
 		b_ZvernennaDoLakara.setFont(new Font("Times New Roman", Font.ITALIC, 29));
 		b_ZvernennaDoLakara.setForeground(new Color(255, 140, 0));
@@ -97,12 +97,12 @@ public class Menu extends JFrame {
 		});
 		b_ZvernennaDoLakara.setBounds(12, 486, 282, 42);
 		getContentPane().add(b_ZvernennaDoLakara);
-		
+
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon("res/fon/Menu1.jpg"));
 		label.setBounds(294, 54, 700, 511);
 		getContentPane().add(label);
-		
+
 		l_fon = new JLabel("");
 		l_fon.setForeground(Color.WHITE);
 		l_fon.setIcon(new ImageIcon("res/fon/Reestracia.png"));

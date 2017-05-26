@@ -77,8 +77,10 @@ public class DiagnostikaVusnovok {
 	
 	String s_Error = "" ;
 
-	@SuppressWarnings("static-access")
-
+	/**
+	 * @wbp.parser.entryPoint
+	 */
+	
 	public DiagnostikaVusnovok(final int i_RikNarodgenna, final int i_Stat, final int i_Zrist, final int i_Vaga,
 			final int i_Profesia, final int i_choice_6, final int i_choice_7, final int i_choice_8,
 			final int i_choice_9, final int i_choice_10, final int i_choice_11, final int i_choice_12,

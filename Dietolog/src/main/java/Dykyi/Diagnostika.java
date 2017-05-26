@@ -2,6 +2,8 @@ package Dykyi;
 
 import java.awt.Button;
 import java.awt.Choice;
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 
 public class Diagnostika extends JFrame {
 
@@ -22,7 +26,6 @@ public class Diagnostika extends JFrame {
 	private Choice choice_Stat;
 	private JLabel l_putanna;
 	private Choice choice_Profesia;
-	private JLabel l_Hapka;
 	private JLabel l_Vvedit;
 	private JLabel l_Stat;
 	private JLabel l_Zrist;
@@ -31,70 +34,79 @@ public class Diagnostika extends JFrame {
 	private JLabel l_Vaga;
 	private JLabel l_cm;
 	private JLabel l_kg;
+	private JButton btnNewButton;
 
-	private Button b_dali;
-	private Button b_Menu;
+	private JLabel l_fon;
 
 	public Diagnostika(String s) {
 		super(s);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(1280, 720);
+		setSize(1000, 600);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 
-		l_Hapka = new JLabel("Пройдіть, будь ласка, опитування");
-		l_Hapka.setHorizontalAlignment(SwingConstants.CENTER);
-		l_Hapka.setBounds(32, 13, 1230, 36);
-		getContentPane().add(l_Hapka);
-
-		l_Vvedit = new JLabel("Введіть");
-		l_Vvedit.setBounds(30, 87, 130, 36);
+		l_Vvedit = new JLabel("Введіть:");
+		l_Vvedit.setForeground(new Color(255, 0, 255));
+		l_Vvedit.setFont(new Font("Times New Roman", Font.ITALIC, 30));
+		l_Vvedit.setBounds(0, 87, 116, 36);
 		getContentPane().add(l_Vvedit);
 
 		l_Stat = new JLabel("стать");
+		l_Stat.setForeground(new Color(255, 0, 255));
+		l_Stat.setFont(new Font("Times New Roman", Font.ITALIC, 30));
 		l_Stat.setBounds(162, 136, 151, 36);
 		getContentPane().add(l_Stat);
 
 		l_RikNarodgenna = new JLabel("рік народження");
-		l_RikNarodgenna.setBounds(162, 87, 151, 36);
+		l_RikNarodgenna.setForeground(new Color(255, 0, 255));
+		l_RikNarodgenna.setFont(new Font("Times New Roman", Font.ITALIC, 30));
+		l_RikNarodgenna.setBounds(128, 87, 205, 36);
 		getContentPane().add(l_RikNarodgenna);
 
 		l_Zrist = new JLabel("зріст");
+		l_Zrist.setForeground(new Color(255, 0, 255));
+		l_Zrist.setFont(new Font("Times New Roman", Font.ITALIC, 30));
 		l_Zrist.setBounds(162, 195, 151, 36);
 		getContentPane().add(l_Zrist);
 
 		l_Vaga = new JLabel("вагу");
+		l_Vaga.setForeground(new Color(255, 0, 255));
+		l_Vaga.setFont(new Font("Times New Roman", Font.ITALIC, 30));
 		l_Vaga.setBounds(162, 256, 151, 36);
 		getContentPane().add(l_Vaga);
 
 		l_Profesia = new JLabel("професію");
+		l_Profesia.setForeground(new Color(255, 0, 255));
+		l_Profesia.setFont(new Font("Times New Roman", Font.ITALIC, 30));
 		l_Profesia.setBounds(162, 320, 151, 36);
 		getContentPane().add(l_Profesia);
 
 		t_RikNarodgenna = new JTextField();
-		t_RikNarodgenna.setBounds(325, 87, 116, 36);
+		t_RikNarodgenna.setBounds(336, 88, 116, 36);
 		getContentPane().add(t_RikNarodgenna);
 		t_RikNarodgenna.setColumns(10);
 
 		t_Zrist = new JTextField();
 		t_Zrist.setColumns(10);
-		t_Zrist.setBounds(325, 195, 116, 36);
+		t_Zrist.setBounds(336, 196, 116, 36);
 		getContentPane().add(t_Zrist);
 
 		t_Vaga = new JTextField();
 		t_Vaga.setColumns(10);
-		t_Vaga.setBounds(325, 256, 116, 36);
+		t_Vaga.setBounds(336, 257, 116, 36);
 		getContentPane().add(t_Vaga);
 
 		choice_Profesia = new Choice();
-		choice_Profesia.setBounds(324, 320, 117, 36);
+		choice_Profesia.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		choice_Profesia.setBounds(336, 334, 117, 36);
 		getContentPane().add(choice_Profesia);
 		choice_Profesia.add("студент");
 
 		choice_Stat = new Choice();
-		choice_Stat.setBounds(324, 150, 117, 22);
+		choice_Stat.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		choice_Stat.setBounds(335, 150, 117, 54);
 		getContentPane().add(choice_Stat);
 		choice_Stat.add("чоловіча");
 		choice_Stat.add("жіноча");
@@ -102,11 +114,43 @@ public class Diagnostika extends JFrame {
 		l_putanna = new JLabel("1-5/25");
 		l_putanna.setFont(new Font("Times New Roman", Font.BOLD, 25));
 		l_putanna.setHorizontalAlignment(SwingConstants.CENTER);
-		l_putanna.setBounds(12, 623, 84, 49);
+		l_putanna.setBounds(12, 440, 84, 49);
 		getContentPane().add(l_putanna);
 
-		b_dali = new Button("Перейти до інших запитань");
-		b_dali.addActionListener(new ActionListener() {
+		l_cm = new JLabel("см.");
+		l_cm.setForeground(new Color(255, 0, 255));
+		l_cm.setFont(new Font("Times New Roman", Font.ITALIC, 30));
+		l_cm.setBounds(464, 196, 75, 36);
+		getContentPane().add(l_cm);
+
+		l_kg = new JLabel("кг.");
+		l_kg.setForeground(new Color(255, 0, 255));
+		l_kg.setFont(new Font("Times New Roman", Font.ITALIC, 30));
+		l_kg.setBounds(464, 257, 75, 36);
+		getContentPane().add(l_kg);
+		
+		JButton b_Menu = new JButton("Меню");
+		b_Menu.setForeground(new Color(255, 140, 0));
+		b_Menu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Object[] options = { "Так, перейти", "Ні, залишитись" };
+				int i_menu = JOptionPane.showOptionDialog(null, "Бажаєте перейти в меню ? Введені дані не збережуться.",
+						"Попередження", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options,
+						null);
+				if (i_menu == 0) {
+					new Menu("Дієтолог");
+					setVisible(false);
+				}
+			}
+		});
+		b_Menu.setFont(new Font("Times New Roman", Font.ITALIC, 30));
+		b_Menu.setBounds(115, 470, 386, 49);
+		getContentPane().add(b_Menu);
+		
+		btnNewButton = new JButton("Перейти до інших запитань");
+		btnNewButton.setForeground(new Color(255, 140, 0));
+		btnNewButton.setFont(new Font("Times New Roman", Font.ITALIC, 28));
+		btnNewButton.addActionListener(new ActionListener() {
 
 			private String s_RikNarodgenna;
 			private String s_Zrist;
@@ -184,33 +228,20 @@ public class Diagnostika extends JFrame {
 				}
 			}
 		});
-		b_dali.setBounds(227, 623, 214, 36);
-		getContentPane().add(b_dali);
+		btnNewButton.setBounds(115, 408, 386, 49);
+		getContentPane().add(btnNewButton);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("res/Diagnostika0.jpg"));
+		label.setBounds(515, 24, 479, 506);
+		getContentPane().add(label);
 
-		l_cm = new JLabel("см.");
-		l_cm.setBounds(453, 195, 75, 36);
-		getContentPane().add(l_cm);
-
-		l_kg = new JLabel("кг.");
-		l_kg.setBounds(453, 256, 75, 36);
-		getContentPane().add(l_kg);
-
-		b_Menu = new Button("Меню");
-		b_Menu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Object[] options = { "Так, перейти", "Ні, залишитись" };
-				int i_menu = JOptionPane.showOptionDialog(null, "Бажаєте перейти в меню ? Введені дані не збережуться.",
-						"Попередження", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options,
-						null);
-				if (i_menu == 0) {
-					new Menu("Дієтолог");
-					setVisible(false);
-				}
-			}
-		});
-		b_Menu.setBounds(120, 623, 108, 36);
-		getContentPane().add(b_Menu);
-
+		l_fon = new JLabel("");
+		l_fon.setForeground(Color.WHITE);
+		l_fon.setIcon(new ImageIcon("res/fon/Reestracia.png"));
+		l_fon.setBounds(-1, 0, 995, 572);
+		getContentPane().add(l_fon);
+		
 		setVisible(true);
 
 	}

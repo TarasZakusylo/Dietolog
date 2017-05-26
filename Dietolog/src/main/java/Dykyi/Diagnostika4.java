@@ -6,15 +6,16 @@ import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JButton;
+import java.awt.Color;
 
 public class Diagnostika4 extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-
-	private JLabel l_Hapka;
 
 	private JLabel l_21;
 	private Choice choice_21;
@@ -28,7 +29,8 @@ public class Diagnostika4 extends JFrame {
 	private JLabel l_22;
 
 	private JLabel l_putanna4;
-	private Button b_dali4;
+	private JButton button;
+	private JButton button_1;
 
 	public Diagnostika4(final int i_RikNarodgenna, final int i_Stat, final int i_Zrist, final int i_Vaga,
 			final int i_Profesia, final int i_choice_6, final int i_choice_7, final int i_choice_8,
@@ -37,15 +39,10 @@ public class Diagnostika4 extends JFrame {
 			final int i_choice_17, final int i_choice_18, final int i_choice_19, final int i_choice_20) {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(1280, 720);
+		setSize(1000, 600);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
-
-		l_Hapka = new JLabel("Пройдіть, будь ласка, опитування");
-		l_Hapka.setHorizontalAlignment(SwingConstants.CENTER);
-		l_Hapka.setBounds(32, 13, 1230, 36);
-		getContentPane().add(l_Hapka);
 
 		l_21 = new JLabel("Ви вважаєте себе солодкоїжкою ?");
 		l_21.setBounds(30, 87, 280, 36);
@@ -109,11 +106,11 @@ public class Diagnostika4 extends JFrame {
 		l_putanna4 = new JLabel("21-25/25");
 		l_putanna4.setHorizontalAlignment(SwingConstants.CENTER);
 		l_putanna4.setFont(new Font("Times New Roman", Font.BOLD, 25));
-		l_putanna4.setBounds(12, 614, 124, 49);
+		l_putanna4.setBounds(22, 458, 124, 49);
 		getContentPane().add(l_putanna4);
-
-		b_dali4 = new Button("Перейти до інших запитань");
-		b_dali4.addActionListener(new ActionListener() {
+		
+		button = new JButton("Перейти до інших запитань");
+		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				String s_choice_21 = choice_21.getSelectedItem();
@@ -226,8 +223,28 @@ public class Diagnostika4 extends JFrame {
 				setVisible(false);
 			}
 		});
-		b_dali4.setBounds(286, 603, 214, 36);
-		getContentPane().add(b_dali4);
+		button.setForeground(new Color(255, 140, 0));
+		button.setFont(new Font("Times New Roman", Font.ITALIC, 28));
+		button.setBounds(519, 408, 386, 49);
+		getContentPane().add(button);
+		
+		button_1 = new JButton("Меню");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Object[] options = { "Так, перейти", "Ні, залишитись" };
+				int i_menu = JOptionPane.showOptionDialog(null, "Бажаєте перейти в меню ? Введені дані не збережуться.",
+						"Попередження", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options,
+						null);
+				if (i_menu == 0) {
+					new Menu("Дієтолог");
+					setVisible(false);
+				}
+			}
+		});
+		button_1.setForeground(new Color(255, 140, 0));
+		button_1.setFont(new Font("Times New Roman", Font.ITALIC, 30));
+		button_1.setBounds(519, 470, 386, 49);
+		getContentPane().add(button_1);
 
 		setVisible(true);
 
