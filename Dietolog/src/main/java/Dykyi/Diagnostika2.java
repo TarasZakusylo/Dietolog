@@ -10,6 +10,8 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
 
@@ -31,6 +33,9 @@ public class Diagnostika2 extends JFrame {
 	private JLabel l_putanna2;
 	private JButton button;
 	private JButton button_1;
+	private JLabel label;
+
+	private JLabel l_fon;
 
 	public Diagnostika2(final int i_RikNarodgenna, final int i_Stat, final int i_Zrist, final int i_Vaga,
 			final int i_Profesia, final int i_choice_6, final int i_choice_7, final int i_choice_8,
@@ -43,45 +48,61 @@ public class Diagnostika2 extends JFrame {
 		getContentPane().setLayout(null);
 
 		l_11 = new JLabel("Скільки овочів та фруктів з’їдаєте за день ? ");
-		l_11.setBounds(30, 87, 280, 36);
+		l_11.setForeground(new Color(255, 0, 255));
+		l_11.setHorizontalAlignment(SwingConstants.CENTER);
+		l_11.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+		l_11.setBounds(0, 87, 462, 36);
 		getContentPane().add(l_11);
 
 		choice_11 = new Choice();
-		choice_11.setBounds(316, 90, 177, 36);
+		choice_11.setFont(new Font("Times New Roman", Font.ITALIC, 15));
+		choice_11.setBounds(468, 91, 177, 36);
 		getContentPane().add(choice_11);
 		choice_11.add("Основа мого раціону");
 		choice_11.add("Сумарно десь тарілочку на тиждень");
 		choice_11.add("Майже не їм");
 
 		l_12 = new JLabel("Скільки рідини випиваєте за день ?");
-		l_12.setBounds(32, 136, 281, 36);
+		l_12.setForeground(new Color(255, 0, 255));
+		l_12.setHorizontalAlignment(SwingConstants.CENTER);
+		l_12.setFont(new Font("Times New Roman", Font.ITALIC, 21));
+		l_12.setBounds(2, 136, 460, 36);
 		getContentPane().add(l_12);
 
 		choice_12 = new Choice();
-		choice_12.setBounds(316, 139, 177, 22);
+		choice_12.setFont(new Font("Times New Roman", Font.ITALIC, 15));
+		choice_12.setBounds(468, 140, 177, 22);
 		getContentPane().add(choice_12);
 		choice_12.add("Не менше 2,5 літрів різноманітних напоїв");
 		choice_12.add("Кілька кружок чаю чи кави");
 		choice_12.add("Чашечку кави ранком та чашечку ввечері");
 
 		l_13 = new JLabel("Буває у Вас після прийому їжі важкість ?");
-		l_13.setBounds(32, 195, 281, 36);
+		l_13.setForeground(new Color(255, 0, 255));
+		l_13.setHorizontalAlignment(SwingConstants.CENTER);
+		l_13.setFont(new Font("Times New Roman", Font.ITALIC, 21));
+		l_13.setBounds(2, 195, 460, 36);
 		getContentPane().add(l_13);
 
 		choice_13 = new Choice();
-		choice_13.setBounds(316, 195, 177, 22);
+		choice_13.setFont(new Font("Times New Roman", Font.ITALIC, 15));
+		choice_13.setBounds(468, 196, 177, 22);
 		getContentPane().add(choice_13);
 		choice_13.add("Ніколи");
 		choice_13.add("Дуже рідко");
 		choice_13.add("Іноді після вечері");
 		choice_13.add("Постійно");
 
-		l_14 = new JLabel("Займаєтесь спортом, додатковими фізичними навантаженнями ?");
-		l_14.setBounds(32, 256, 281, 36);
+		l_14 = new JLabel("Займаєтесь спортом, додатковими фіз.навантаженнями ?");
+		l_14.setForeground(new Color(255, 0, 255));
+		l_14.setHorizontalAlignment(SwingConstants.CENTER);
+		l_14.setFont(new Font("Times New Roman", Font.ITALIC, 18));
+		l_14.setBounds(2, 256, 470, 36);
 		getContentPane().add(l_14);
 
 		choice_14 = new Choice();
-		choice_14.setBounds(316, 256, 177, 22);
+		choice_14.setFont(new Font("Times New Roman", Font.ITALIC, 15));
+		choice_14.setBounds(468, 257, 177, 22);
 		getContentPane().add(choice_14);
 		choice_14.add("Спорт у мене в крові");
 		choice_14.add("1-2 рази на таждень");
@@ -89,11 +110,15 @@ public class Diagnostika2 extends JFrame {
 		choice_14.add("Ніколи, це не для мене");
 
 		l_15 = new JLabel("Як ви ставитесь до вегетаріанства ?");
-		l_15.setBounds(32, 320, 281, 36);
+		l_15.setForeground(new Color(255, 0, 255));
+		l_15.setHorizontalAlignment(SwingConstants.CENTER);
+		l_15.setFont(new Font("Times New Roman", Font.ITALIC, 21));
+		l_15.setBounds(2, 320, 460, 36);
 		getContentPane().add(l_15);
 
 		choice_15 = new Choice();
-		choice_15.setBounds(316, 320, 175, 28);
+		choice_15.setFont(new Font("Times New Roman", Font.ITALIC, 15));
+		choice_15.setBounds(468, 321, 175, 28);
 		getContentPane().add(choice_15);
 		choice_15.add("Я вегетеріанець");
 		choice_15.add("Цікавлюсь цим");
@@ -232,7 +257,17 @@ public class Diagnostika2 extends JFrame {
 		button_1.setFont(new Font("Times New Roman", Font.ITALIC, 30));
 		button_1.setBounds(151, 466, 386, 49);
 		getContentPane().add(button_1);
+		
+		label = new JLabel("");
+		label.setBounds(645, 13, 349, 539);
+		getContentPane().add(label);
 
+		l_fon = new JLabel("");
+		l_fon.setForeground(Color.WHITE);
+		l_fon.setIcon(new ImageIcon("res/fon/Reestracia.png"));
+		l_fon.setBounds(-1, 0, 995, 572);
+		getContentPane().add(l_fon);
+		
 		setVisible(true);
 
 	}
