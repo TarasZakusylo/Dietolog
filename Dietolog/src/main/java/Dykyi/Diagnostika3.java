@@ -10,6 +10,8 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
 
@@ -32,6 +34,8 @@ public class Diagnostika3 extends JFrame {
 	private JButton button;
 	private JButton button_1;
 
+	private JLabel l_fon;
+
 	public Diagnostika3(final int i_RikNarodgenna, final int i_Stat, final int i_Zrist, final int i_Vaga,
 			final int i_Profesia, final int i_choice_6, final int i_choice_7, final int i_choice_8,
 			final int i_choice_9, final int i_choice_10, final int i_choice_11, final int i_choice_12,
@@ -44,8 +48,10 @@ public class Diagnostika3 extends JFrame {
 		getContentPane().setLayout(null);
 
 		l_16 = new JLabel("Встигаєте поснідати ?");
+		l_16.setForeground(new Color(255, 105, 180));
+		l_16.setHorizontalAlignment(SwingConstants.CENTER);
 		l_16.setFont(new Font("Times New Roman", Font.ITALIC, 21));
-		l_16.setBounds(12, 87, 349, 36);
+		l_16.setBounds(-1, 92, 349, 36);
 		getContentPane().add(l_16);
 
 		choice_16 = new Choice();
@@ -57,8 +63,10 @@ public class Diagnostika3 extends JFrame {
 		choice_16.add("Ніколи");
 
 		l_17 = new JLabel("Чи вживаєте Ви молочні продукти ?");
+		l_17.setForeground(new Color(255, 105, 180));
+		l_17.setHorizontalAlignment(SwingConstants.CENTER);
 		l_17.setFont(new Font("Times New Roman", Font.ITALIC, 21));
-		l_17.setBounds(14, 136, 347, 36);
+		l_17.setBounds(1, 141, 347, 36);
 		getContentPane().add(l_17);
 
 		choice_17 = new Choice();
@@ -70,8 +78,10 @@ public class Diagnostika3 extends JFrame {
 		choice_17.add("Ніколи не вживаю");
 
 		l_18 = new JLabel("Ваше харчування різноманітне ?");
+		l_18.setForeground(new Color(255, 105, 180));
+		l_18.setHorizontalAlignment(SwingConstants.CENTER);
 		l_18.setFont(new Font("Times New Roman", Font.ITALIC, 21));
-		l_18.setBounds(14, 195, 347, 36);
+		l_18.setBounds(1, 200, 347, 36);
 		getContentPane().add(l_18);
 
 		choice_18 = new Choice();
@@ -83,8 +93,10 @@ public class Diagnostika3 extends JFrame {
 		choice_18.add("Ніколи");
 
 		l_19 = new JLabel("Як часто Ви вживаєте алкоголь ?");
+		l_19.setForeground(new Color(255, 105, 180));
+		l_19.setHorizontalAlignment(SwingConstants.CENTER);
 		l_19.setFont(new Font("Times New Roman", Font.ITALIC, 21));
-		l_19.setBounds(14, 256, 347, 36);
+		l_19.setBounds(1, 261, 347, 36);
 		getContentPane().add(l_19);
 
 		choice_19 = new Choice();
@@ -97,8 +109,10 @@ public class Diagnostika3 extends JFrame {
 		choice_19.add("Частіше ніж раз на тиждень");
 
 		l_20 = new JLabel("Як часто Ви вживаєте жирну їжу ?");
+		l_20.setForeground(new Color(255, 105, 180));
+		l_20.setHorizontalAlignment(SwingConstants.CENTER);
 		l_20.setFont(new Font("Times New Roman", Font.ITALIC, 21));
-		l_20.setBounds(14, 320, 347, 36);
+		l_20.setBounds(1, 325, 347, 36);
 		getContentPane().add(l_20);
 
 		choice_20 = new Choice();
@@ -112,7 +126,7 @@ public class Diagnostika3 extends JFrame {
 		l_putanna3 = new JLabel("16-20/25");
 		l_putanna3.setHorizontalAlignment(SwingConstants.CENTER);
 		l_putanna3.setFont(new Font("Times New Roman", Font.BOLD, 25));
-		l_putanna3.setBounds(30, 435, 120, 49);
+		l_putanna3.setBounds(12, 434, 120, 49);
 		getContentPane().add(l_putanna3);
 		
 		button = new JButton("Перейти до інших запитань");
@@ -217,7 +231,7 @@ public class Diagnostika3 extends JFrame {
 		});
 		button.setForeground(new Color(255, 140, 0));
 		button.setFont(new Font("Times New Roman", Font.ITALIC, 28));
-		button.setBounds(162, 403, 386, 49);
+		button.setBounds(144, 404, 386, 49);
 		getContentPane().add(button);
 		
 		button_1 = new JButton("Меню");
@@ -235,8 +249,19 @@ public class Diagnostika3 extends JFrame {
 		});
 		button_1.setForeground(new Color(255, 140, 0));
 		button_1.setFont(new Font("Times New Roman", Font.ITALIC, 30));
-		button_1.setBounds(162, 465, 386, 49);
+		button_1.setBounds(144, 466, 386, 49);
 		getContentPane().add(button_1);
+		
+		JLabel label = new JLabel("");
+		label.setBounds(569, 0, 425, 565);
+		label.setIcon(new ImageIcon("res/Diagnostika3.jpg"));
+		getContentPane().add(label);
+		
+		l_fon = new JLabel("");
+		l_fon.setForeground(Color.WHITE);
+		l_fon.setIcon(new ImageIcon("res/fon/Reestracia.png"));
+		l_fon.setBounds(-1, 0, 995, 572);
+		getContentPane().add(l_fon);
 
 		setVisible(true);
 
