@@ -44,56 +44,66 @@ public class Diagnostika3 extends JFrame {
 		getContentPane().setLayout(null);
 
 		l_16 = new JLabel("Встигаєте поснідати ?");
-		l_16.setBounds(30, 87, 280, 36);
+		l_16.setFont(new Font("Times New Roman", Font.ITALIC, 21));
+		l_16.setBounds(12, 87, 349, 36);
 		getContentPane().add(l_16);
 
 		choice_16 = new Choice();
-		choice_16.setBounds(316, 90, 177, 36);
+		choice_16.setFont(new Font("Times New Roman", Font.ITALIC, 15));
+		choice_16.setBounds(359, 97, 204, 31);
 		getContentPane().add(choice_16);
 		choice_16.add("Завжди снідаю");
 		choice_16.add("Іноді");
 		choice_16.add("Ніколи");
 
-		l_17 = new JLabel("Як ви ставитесь до молочних продуктів ?");
-		l_17.setBounds(32, 136, 281, 36);
+		l_17 = new JLabel("Чи вживаєте Ви молочні продукти ?");
+		l_17.setFont(new Font("Times New Roman", Font.ITALIC, 21));
+		l_17.setBounds(14, 136, 347, 36);
 		getContentPane().add(l_17);
 
 		choice_17 = new Choice();
-		choice_17.setBounds(316, 139, 177, 22);
+		choice_17.setFont(new Font("Times New Roman", Font.ITALIC, 15));
+		choice_17.setBounds(359, 146, 204, 31);
 		getContentPane().add(choice_17);
 		choice_17.add("Регулярно");
 		choice_17.add("Іноді");
 		choice_17.add("Ніколи не вживаю");
 
 		l_18 = new JLabel("Ваше харчування різноманітне ?");
-		l_18.setBounds(32, 195, 281, 36);
+		l_18.setFont(new Font("Times New Roman", Font.ITALIC, 21));
+		l_18.setBounds(14, 195, 347, 36);
 		getContentPane().add(l_18);
 
 		choice_18 = new Choice();
-		choice_18.setBounds(316, 195, 177, 22);
+		choice_18.setFont(new Font("Times New Roman", Font.ITALIC, 15));
+		choice_18.setBounds(359, 202, 204, 31);
 		getContentPane().add(choice_18);
 		choice_18.add("Постійно, мені це цікаво");
 		choice_18.add("Якщо є час");
 		choice_18.add("Ніколи");
 
-		l_19 = new JLabel("Як часто ви вживаєте алкоголь ?");
-		l_19.setBounds(32, 256, 281, 36);
+		l_19 = new JLabel("Як часто Ви вживаєте алкоголь ?");
+		l_19.setFont(new Font("Times New Roman", Font.ITALIC, 21));
+		l_19.setBounds(14, 256, 347, 36);
 		getContentPane().add(l_19);
 
 		choice_19 = new Choice();
-		choice_19.setBounds(316, 256, 177, 22);
+		choice_19.setFont(new Font("Times New Roman", Font.ITALIC, 15));
+		choice_19.setBounds(359, 263, 204, 31);
 		getContentPane().add(choice_19);
 		choice_19.add("Ніколи");
 		choice_19.add("Раз на 3 місяці");
 		choice_19.add("Раз на місять");
 		choice_19.add("Частіше ніж раз на тиждень");
 
-		l_20 = new JLabel("Як часто ви вживаєте жирну їжу ?");
-		l_20.setBounds(32, 320, 281, 36);
+		l_20 = new JLabel("Як часто Ви вживаєте жирну їжу ?");
+		l_20.setFont(new Font("Times New Roman", Font.ITALIC, 21));
+		l_20.setBounds(14, 320, 347, 36);
 		getContentPane().add(l_20);
 
 		choice_20 = new Choice();
-		choice_20.setBounds(316, 320, 175, 28);
+		choice_20.setFont(new Font("Times New Roman", Font.ITALIC, 15));
+		choice_20.setBounds(359, 327, 204, 31);
 		getContentPane().add(choice_20);
 		choice_20.add("Дуже рідко");
 		choice_20.add("Раз на тиждень");
@@ -207,7 +217,7 @@ public class Diagnostika3 extends JFrame {
 		});
 		button.setForeground(new Color(255, 140, 0));
 		button.setFont(new Font("Times New Roman", Font.ITALIC, 28));
-		button.setBounds(541, 409, 386, 49);
+		button.setBounds(162, 403, 386, 49);
 		getContentPane().add(button);
 		
 		button_1 = new JButton("Меню");
@@ -225,7 +235,7 @@ public class Diagnostika3 extends JFrame {
 		});
 		button_1.setForeground(new Color(255, 140, 0));
 		button_1.setFont(new Font("Times New Roman", Font.ITALIC, 30));
-		button_1.setBounds(541, 471, 386, 49);
+		button_1.setBounds(162, 465, 386, 49);
 		getContentPane().add(button_1);
 
 		setVisible(true);

@@ -51,12 +51,12 @@ public class Diagnostika2 extends JFrame {
 		l_11.setForeground(new Color(255, 0, 255));
 		l_11.setHorizontalAlignment(SwingConstants.CENTER);
 		l_11.setFont(new Font("Times New Roman", Font.ITALIC, 20));
-		l_11.setBounds(0, 87, 462, 36);
+		l_11.setBounds(2, 58, 462, 36);
 		getContentPane().add(l_11);
 
 		choice_11 = new Choice();
 		choice_11.setFont(new Font("Times New Roman", Font.ITALIC, 15));
-		choice_11.setBounds(468, 91, 177, 36);
+		choice_11.setBounds(470, 62, 314, 24);
 		getContentPane().add(choice_11);
 		choice_11.add("Основа мого раціону");
 		choice_11.add("Сумарно десь тарілочку на тиждень");
@@ -66,12 +66,12 @@ public class Diagnostika2 extends JFrame {
 		l_12.setForeground(new Color(255, 0, 255));
 		l_12.setHorizontalAlignment(SwingConstants.CENTER);
 		l_12.setFont(new Font("Times New Roman", Font.ITALIC, 21));
-		l_12.setBounds(2, 136, 460, 36);
+		l_12.setBounds(2, 114, 460, 36);
 		getContentPane().add(l_12);
 
 		choice_12 = new Choice();
 		choice_12.setFont(new Font("Times New Roman", Font.ITALIC, 15));
-		choice_12.setBounds(468, 140, 177, 22);
+		choice_12.setBounds(468, 118, 314, 24);
 		getContentPane().add(choice_12);
 		choice_12.add("Не менше 2,5 літрів різноманітних напоїв");
 		choice_12.add("Кілька кружок чаю чи кави");
@@ -81,12 +81,12 @@ public class Diagnostika2 extends JFrame {
 		l_13.setForeground(new Color(255, 0, 255));
 		l_13.setHorizontalAlignment(SwingConstants.CENTER);
 		l_13.setFont(new Font("Times New Roman", Font.ITALIC, 21));
-		l_13.setBounds(2, 195, 460, 36);
+		l_13.setBounds(2, 237, 460, 36);
 		getContentPane().add(l_13);
 
 		choice_13 = new Choice();
 		choice_13.setFont(new Font("Times New Roman", Font.ITALIC, 15));
-		choice_13.setBounds(468, 196, 177, 22);
+		choice_13.setBounds(468, 238, 177, 22);
 		getContentPane().add(choice_13);
 		choice_13.add("Ніколи");
 		choice_13.add("Дуже рідко");
@@ -97,12 +97,12 @@ public class Diagnostika2 extends JFrame {
 		l_14.setForeground(new Color(255, 0, 255));
 		l_14.setHorizontalAlignment(SwingConstants.CENTER);
 		l_14.setFont(new Font("Times New Roman", Font.ITALIC, 18));
-		l_14.setBounds(2, 256, 470, 36);
+		l_14.setBounds(2, 175, 470, 36);
 		getContentPane().add(l_14);
 
 		choice_14 = new Choice();
 		choice_14.setFont(new Font("Times New Roman", Font.ITALIC, 15));
-		choice_14.setBounds(468, 257, 177, 22);
+		choice_14.setBounds(468, 176, 177, 22);
 		getContentPane().add(choice_14);
 		choice_14.add("Спорт у мене в крові");
 		choice_14.add("1-2 рази на таждень");
@@ -113,12 +113,12 @@ public class Diagnostika2 extends JFrame {
 		l_15.setForeground(new Color(255, 0, 255));
 		l_15.setHorizontalAlignment(SwingConstants.CENTER);
 		l_15.setFont(new Font("Times New Roman", Font.ITALIC, 21));
-		l_15.setBounds(2, 320, 460, 36);
+		l_15.setBounds(2, 308, 460, 36);
 		getContentPane().add(l_15);
 
 		choice_15 = new Choice();
 		choice_15.setFont(new Font("Times New Roman", Font.ITALIC, 15));
-		choice_15.setBounds(468, 321, 175, 28);
+		choice_15.setBounds(468, 309, 175, 28);
 		getContentPane().add(choice_15);
 		choice_15.add("Я вегетеріанець");
 		choice_15.add("Цікавлюсь цим");
@@ -259,6 +259,7 @@ public class Diagnostika2 extends JFrame {
 		getContentPane().add(button_1);
 		
 		label = new JLabel("");
+		label.setIcon(new ImageIcon("res/Diagnostika2.jpg"));		
 		label.setBounds(645, 13, 349, 539);
 		getContentPane().add(label);
 
