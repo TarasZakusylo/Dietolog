@@ -214,7 +214,7 @@ public class Diagnostika4 extends JFrame {
 					i_choice_24 = 2;
 				}
 					break;
-				case "Так, що най менше пачку в день": {
+				case "Так, щонайменше пачку в день": {
 					i_choice_24 = 3;
 				}
 					break;
