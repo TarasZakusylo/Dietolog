@@ -1,19 +1,17 @@
 package Dykyi;
 
-import java.awt.Button;
 import java.awt.Choice;
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import java.awt.Color;
 
 public class Diagnostika2 extends JFrame {
 
@@ -47,7 +45,7 @@ public class Diagnostika2 extends JFrame {
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 
-		l_11 = new JLabel("Скільки овочів та фруктів з’їдаєте за день ? ");
+		l_11 = new JLabel("Скільки овочів та фруктів з’їдаєте за день ?");
 		l_11.setForeground(new Color(255, 0, 255));
 		l_11.setHorizontalAlignment(SwingConstants.CENTER);
 		l_11.setFont(new Font("Times New Roman", Font.ITALIC, 20));

@@ -1,19 +1,17 @@
 package Dykyi;
 
-import java.awt.Button;
 import java.awt.Choice;
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import java.awt.Color;
 
 public class Diagnostika3 extends JFrame {
 
@@ -128,7 +126,7 @@ public class Diagnostika3 extends JFrame {
 		l_putanna3.setFont(new Font("Times New Roman", Font.BOLD, 25));
 		l_putanna3.setBounds(12, 434, 120, 49);
 		getContentPane().add(l_putanna3);
-		
+
 		button = new JButton("Перейти до інших запитань");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -233,7 +231,7 @@ public class Diagnostika3 extends JFrame {
 		button.setFont(new Font("Times New Roman", Font.ITALIC, 28));
 		button.setBounds(144, 404, 386, 49);
 		getContentPane().add(button);
-		
+
 		button_1 = new JButton("Меню");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -251,12 +249,12 @@ public class Diagnostika3 extends JFrame {
 		button_1.setFont(new Font("Times New Roman", Font.ITALIC, 30));
 		button_1.setBounds(144, 466, 386, 49);
 		getContentPane().add(button_1);
-		
+
 		JLabel label = new JLabel("");
 		label.setBounds(569, 0, 425, 565);
 		label.setIcon(new ImageIcon("res/Diagnostika3.jpg"));
 		getContentPane().add(label);
-		
+
 		l_fon = new JLabel("");
 		l_fon.setForeground(Color.WHITE);
 		l_fon.setIcon(new ImageIcon("res/fon/Reestracia.png"));

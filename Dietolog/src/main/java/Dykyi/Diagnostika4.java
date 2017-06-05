@@ -1,20 +1,17 @@
 package Dykyi;
 
-import java.awt.Button;
 import java.awt.Choice;
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import java.awt.Color;
-import java.awt.Component;
 
 public class Diagnostika4 extends JFrame {
 
@@ -134,7 +131,7 @@ public class Diagnostika4 extends JFrame {
 		l_putanna4.setFont(new Font("Times New Roman", Font.BOLD, 25));
 		l_putanna4.setBounds(29, 460, 124, 49);
 		getContentPane().add(l_putanna4);
-		
+
 		button = new JButton("Перейти до інших запитань");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -169,7 +166,7 @@ public class Diagnostika4 extends JFrame {
 				}
 					break;
 				}
-			 
+
 				switch (s_choice_22) {
 				case "Стрес ніяк не впливає на моє харчування": {
 					i_choice_22 = 0;
@@ -184,7 +181,7 @@ public class Diagnostika4 extends JFrame {
 				}
 					break;
 				}
-			 
+
 				switch (s_choice_23) {
 				case "Ніколи": {
 					i_choice_23 = 0;
@@ -203,7 +200,7 @@ public class Diagnostika4 extends JFrame {
 				}
 					break;
 				}
-	 
+
 				switch (s_choice_24) {
 				case "Ніколи": {
 					i_choice_24 = 0;
@@ -222,7 +219,7 @@ public class Diagnostika4 extends JFrame {
 				}
 					break;
 				}
-			
+
 				switch (s_choice_25) {
 				case "Ніколи не дозволяю собі такого": {
 					i_choice_25 = 0;
@@ -242,10 +239,10 @@ public class Diagnostika4 extends JFrame {
 					break;
 				}
 
-				new DiagnostikaVusnovok(i_RikNarodgenna, i_Stat, i_Zrist, i_Vaga, i_Profesia, i_choice_6, i_choice_7,
-						i_choice_8, i_choice_9, i_choice_10, i_choice_11, i_choice_12, i_choice_13, i_choice_14,
-						i_choice_15, i_choice_16, i_choice_17, i_choice_18, i_choice_19, i_choice_20, i_choice_21,
-						i_choice_22, i_choice_23, i_choice_24, i_choice_25);
+				new DiagnostikaVusnovokObchuslenna(i_RikNarodgenna, i_Stat, i_Zrist, i_Vaga, i_Profesia, i_choice_6,
+						i_choice_7, i_choice_8, i_choice_9, i_choice_10, i_choice_11, i_choice_12, i_choice_13,
+						i_choice_14, i_choice_15, i_choice_16, i_choice_17, i_choice_18, i_choice_19, i_choice_20,
+						i_choice_21, i_choice_22, i_choice_23, i_choice_24, i_choice_25);
 				setVisible(false);
 			}
 		});
@@ -253,7 +250,7 @@ public class Diagnostika4 extends JFrame {
 		button.setFont(new Font("Times New Roman", Font.ITALIC, 28));
 		button.setBounds(184, 425, 386, 49);
 		getContentPane().add(button);
-		
+
 		button_1 = new JButton("Меню");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -271,7 +268,7 @@ public class Diagnostika4 extends JFrame {
 		button_1.setFont(new Font("Times New Roman", Font.ITALIC, 30));
 		button_1.setBounds(184, 487, 386, 49);
 		getContentPane().add(button_1);
-		
+
 		label = new JLabel("");
 		label.setBounds(629, 0, 365, 565);
 		label.setIcon(new ImageIcon("res/Diagnostika4.jpg"));
@@ -282,7 +279,7 @@ public class Diagnostika4 extends JFrame {
 		l_fon.setIcon(new ImageIcon("res/fon/Reestracia.png"));
 		l_fon.setBounds(-1, 0, 995, 572);
 		getContentPane().add(l_fon);
-		
+
 		setVisible(true);
 
 	}

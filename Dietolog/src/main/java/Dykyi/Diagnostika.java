@@ -1,20 +1,18 @@
 package Dykyi;
 
-import java.awt.Button;
 import java.awt.Choice;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 
 public class Diagnostika extends JFrame {
 
@@ -99,13 +97,15 @@ public class Diagnostika extends JFrame {
 		getContentPane().add(t_Vaga);
 
 		choice_Profesia = new Choice();
-		choice_Profesia.setFont(new Font("Times New Roman", Font.PLAIN, 15));
-		choice_Profesia.setBounds(336, 334, 117, 36);
+		choice_Profesia.setFont(new Font("Times New Roman", Font.ITALIC, 15));
+		choice_Profesia.setBounds(336, 334, 191, 24);
 		getContentPane().add(choice_Profesia);
 		choice_Profesia.add("студент");
+		choice_Profesia.add("фізична робота");
+		choice_Profesia.add("інтелектуальна робота");
 
 		choice_Stat = new Choice();
-		choice_Stat.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		choice_Stat.setFont(new Font("Times New Roman", Font.ITALIC, 15));
 		choice_Stat.setBounds(335, 150, 117, 54);
 		getContentPane().add(choice_Stat);
 		choice_Stat.add("чоловіча");
@@ -201,11 +201,17 @@ public class Diagnostika extends JFrame {
 											i_Stat = 1;
 										}
 											break;
-										}
-
+										} 
+										
 										switch (s_Profesia) {
 										case "студент": {
 											i_Profesia = 0;
+										}
+										case "фізична робота": {
+											i_Profesia = 1;
+										}
+										case "інтелектуальна робота": {
+											i_Profesia = 2;
 										}
 											break;
 										}
