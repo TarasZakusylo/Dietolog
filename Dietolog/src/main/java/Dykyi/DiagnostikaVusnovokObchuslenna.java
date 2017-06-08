@@ -254,7 +254,7 @@ public class DiagnostikaVusnovokObchuslenna {
 			i_Reading_27 = Integer.parseInt(Reading_27);
 			i_Reading_28 = Integer.parseInt(Reading_28);
 
-			if (i_Reading_6 != i_RikNarodgenna) {
+			if (i_Reading_1 != i_RikNarodgenna) {
 				s_Error = s_Error
 						+ "Помилкове введення пройдіть опитування, буль ласка опитування ще раз.\nЗверніть увагу на рік народження";
 			}
@@ -265,20 +265,22 @@ public class DiagnostikaVusnovokObchuslenna {
 			double d_IMT1 = i_Reading_4 / ((i_Reading_3 / 100) * (i_Reading_3 / 100));
 			String s_IMT = "";
 			String s_RekomendaciiZagalni = "Їсти бажано в один і той же час, який ви повинні встановити "
-					+ "собі самі (у зв’язку із характером праці).\n"
-					+ "Склянка води без газу за півгодини до їжі зменшує апетит.\n"
-					+ "Їжу потрібно починати з нежирного супу або салату.\n"
-					+ "Слідкуйте за розміром порцій і не беріть добавки.\n"
+					+ "собі самі (у зв’язку із характером праці).\n\n"
+					+ "Склянка води без газу за півгодини до їжі зменшує апетит.\n\n"
+					+ "Їжу потрібно починати з нежирного супу або салату.\n\n"
+					+ "Слідкуйте за розміром порцій і не беріть добавки.\n\n"
 					+ "Їжте повільно, ретельно пережовуючи. При швидкому поглинанні "
 					+ "їжі відчуття насичення \"відстає\" від кількості поглинутої їжі."
-					+ " Внаслідок чого з’їдається зайва кількість їжі.\n"
-					+ "Купуйте продукти за попередньо складеним списком.\n" + "Не купуйте продукти у стані голоду.\n"
-					+ "Купуючи продукти, завжди читати етикетку про склад (жири, вуглеводи, кілокалорії).\n"
-					+ "Не довіряти словам \"дієтичний\" або \"низькокалорійний\", дивитися на цифри.\n";
+					+ " Внаслідок чого з’їдається зайва кількість їжі.\n\n"
+					+ "Купуйте продукти за попередньо складеним списком.\n\n" 
+					+ "Не купуйте продукти у стані голоду.\n\n"
+					+ "Купуючи продукти, завжди читати етикетку про склад (жири, вуглеводи, кілокалорії).\n\n"
+					+ "Не довіряти словам \"дієтичний\" або \"низькокалорійний\", дивитися на цифри.\n\n";
 
 			String s_RekomendaciiPerconalni = "";
 
-			int s_Vegeterianstvo = 0;
+			int i_Vegeterianstvo = 0;
+			int i_Ocinka = 0 ;
 
 			if (d_IMT0 >= 18 || d_IMT0 <= 25) {
 				s_IMT = s_IMT + "Маса тіла у межах норми. Вітаємо !";
@@ -291,44 +293,53 @@ public class DiagnostikaVusnovokObchuslenna {
 			}
 			if (i_choice_6 != 0 && i_choice_13 == 0 || i_choice_6 != 0 && i_choice_13 == 1) {
 				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni
-						+ "Спосперігається недоїдання, намагайтесь їсти частіше.\n";
+						+ "Спосперігається недоїдання, намагайтесь їсти частіше.\n\n";
+				i_Ocinka = i_Ocinka + 2 ;
 			}
 			if (i_choice_6 != 0 && i_choice_13 == 2 || i_choice_6 != 0 && i_choice_13 == 3) {
 				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni
-						+ "Недоречні прийоми їжі. Намагайтесь їсти частіше, але меншими порціями.\n";
+						+ "Недоречні прийоми їжі. Намагайтесь їсти частіше, але меншими порціями.\n\n";
+				i_Ocinka = i_Ocinka + 2 ;
 			}
 			if (i_choice_6 == 0 && i_choice_13 == 2 || i_choice_6 == 0 && i_choice_13 == 3) {
 				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni
 						+ "Спосперігається переїдання, намагайтесь їсти рідше."
 						+ "Необхідно іноді влаштовувати розвантажувальний день, наприклад, "
 						+ "2 літри знежиреного кефіру або молока, або 1 кг. кабачків і 200 г. "
-						+ "нежирного м’яса за день. При цьому воду або чай можна пити без обмежень.\n";
+						+ "нежирного м’яса за день. При цьому воду або чай можна пити без обмежень.\n\n";
+				i_Ocinka = i_Ocinka + 2 ;
 			}
 
 			int i_IjaPeredSnom = i_choice_8 - i_choice_10;
 
 			if (i_IjaPeredSnom == 0) {
 				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni
-						+ "Вам необхадно вечеряти на годину раніше. Ви занадто пізно їсте.\n";
+						+ "Вам необхадно вечеряти на годину раніше. Ви занадто пізно їсте.\n\n";
+				i_Ocinka = i_Ocinka + 1;
 			}
 
 			if (i_IjaPeredSnom > 0) {
 				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni
-						+ "Вам необхадно вечеряти на 2 години раніше. Ви занадто пізно їсте.\n";
+						+ "Вам необхадно вечеряти на 2 години раніше. Ви занадто пізно їсте.\n\n";
+				i_Ocinka = i_Ocinka + 2;
 			}
 
 			if (i_choice_7 != 0) {
-				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni + "Основним прийомом їжі має бути обід.\n";
+				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni + "Основним прийомом їжі має бути обід.\n\n";
+				i_Ocinka = i_Ocinka + 2;
 			}
 			if (i_choice_9 == 2) {
-				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni + "Вам варто вживати менше солодкого.\n";
+				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni + "Вам варто вживати менше солодкого.\n\n";
+				i_Ocinka = i_Ocinka + 2;
 			}
 			if (i_choice_11 != 0) {
-				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni + "Варто більше вживати овочів та фруктів.\n";
+				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni + "Варто більше вживати овочів та фруктів.\n\n";
+				i_Ocinka = i_Ocinka + 2;
 			}
 			if (i_choice_12 != 0) {
 				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni
-						+ "Людина має пити не менше 2 літпів води на день.\n";
+						+ "Людина має пити не менше 2 літпів води на день.\n\n";
+				i_Ocinka = i_Ocinka + 2;
 			}
 			if (i_Profesia != 1) {
 				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni
@@ -338,50 +349,60 @@ public class DiagnostikaVusnovokObchuslenna {
 			if (i_Profesia == 1 && i_choice_14 == 0) {
 				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni
 						+ "Оскільки у Вас фізична робота та Ви займаєтесь спортом,"
-						+ " то Вам неохідно насичувати свій раціон" + " м'ясом, яйцями, рибою, горіхами.\n";
+						+ " то Вам неохідно насичувати свій раціон" + " м'ясом, яйцями, рибою, горіхами.\n\n";
 			}
-			if (i_choice_15 != 0) {
-				s_Vegeterianstvo = 1;
+			if (i_choice_15 == 2) {
+				i_Vegeterianstvo = 1;
 			}
 			if (i_choice_16 != 0) {
-				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni + "Завжди необхыдно снідати.\n";
+				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni + "Завжди необхыдно снідати.\n\n";
+				i_Ocinka = i_Ocinka + 2;
 			}
 			if (i_choice_17 != 0) {
-				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni + "Вживайте більше молочних продуктів.\n";
+				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni + "Вживайте більше молочних продуктів.\n\n";
+				i_Ocinka = i_Ocinka + 2;
 			}
 			if (i_choice_18 == 2) {
-				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni + "Намагайтесь урізноманітнювати Ваш раціон.\n";
+				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni + "Намагайтесь урізноманітнювати Ваш раціон.\n\n";
+				i_Ocinka = i_Ocinka + 1;
 			}
 			if (i_choice_19 == 2) {
 				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni
-						+ "Алкоголь убиває Вас і Ваш раціон. Позбудьтесь його.\n";
+						+ "Алкоголь убиває Вас і Ваш раціон. Позбудьтесь його.\n\n";
+				i_Ocinka = i_Ocinka + 2;
 			}
 			if (i_choice_20 == 2) {
-				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni + "Старайтесь мінімізувати вживання жирної їжі.\n";
+				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni + "Старайтесь мінімізувати вживання жирної їжі.\n\n";
+				i_Ocinka = i_Ocinka + 2;
 			}
 			if (i_choice_21 == 3) {
-				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni + "Солодке псує ваше здорв'я.\n";
+				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni + "Солодке псує ваше здорв'я.\n\n";
+				i_Ocinka = i_Ocinka + 2;
 			}
 			if (i_choice_22 != 0) {
 				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni
-						+ "Пам'ятайте, що стрес дуже негативно впливає на Ваше харчування та здоров'я.\n";
+						+ "Пам'ятайте, що стрес дуже негативно впливає на Ваше харчування та здоров'я.\n\n";
+				i_Ocinka = i_Ocinka + 2;
 			}
 			if (i_choice_23 == 2 && i_choice_23 == 3) {
 				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni
 						+ "Вірте тільки тим дієтам, які порекомендував Вам лікар. "
-						+ "Подрузі, книги чи Інтернет не є надійним джерелом.\n";
+						+ "Подрузі, книги чи Інтернет не є надійним джерелом.\n\n";
+				i_Ocinka = i_Ocinka + 2;
 			}
 			if (i_choice_25 == 2 && i_choice_25 == 3) {
 				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni
-						+ "Вам варто відмовитись від харчування із друзями, колегами. Це шкодить вашому раціону.\n";
+						+ "Вам варто відмовитись від харчування із друзями, колегами. Це шкодить вашому раціону.\n\n";
+				i_Ocinka = i_Ocinka + 2;
 			}
 			if (i_choice_24 != 0) {
 				s_RekomendaciiPerconalni = s_RekomendaciiPerconalni
 						+ "Вам необхідно кидати курити. Прогнозується, що це супроводжуватиметься підвищенням апетиту"
-						+ ", тому дотримуйтесь раціону. Іноді курці замінюють сигаретою прийом їжі, недопускайте цього.\n";
+						+ ", тому дотримуйтесь раціону. Іноді курці замінюють сигаретою прийом їжі, недопускайте цього.\n\n";
+				i_Ocinka = i_Ocinka + 2;
 			}
 
-			new DiagnostikaVusnovokVizyalizacia(s_IMT, s_RekomendaciiPerconalni, s_Vegeterianstvo);
+			new DiagnostikaVusnovokVizyalizacia(s_IMT, s_RekomendaciiZagalni , s_RekomendaciiPerconalni, i_Vegeterianstvo , i_Ocinka);
 
 		} else {
 			// System.out.println("Файл не существует.");
