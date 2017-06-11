@@ -1,24 +1,22 @@
 package Dykyi;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
-import javax.swing.JTextPane;
-import javax.swing.JScrollPane;
-import javax.swing.JRadioButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.ImageIcon;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTextPane;
+import javax.swing.SwingConstants;
 
 public class DiagnostikaVusnovokVizyalizacia extends JFrame {
 
@@ -44,9 +42,12 @@ public class DiagnostikaVusnovokVizyalizacia extends JFrame {
 
 	private JLabel l_fon;
 	boolean d_Ocinka = false;
+	String s_Error = "";
+	private JLabel l_IMT_komentar;
 
-	public DiagnostikaVusnovokVizyalizacia(String s_IMT, final String s_RekomendaciiZagalni,
-			final String s_RekomendaciiPerconalni, int i_Vegeterianstvo, final int i_Ocinka) {
+	public DiagnostikaVusnovokVizyalizacia(final String s_IMT, double d_IMT0, final String s_RekomendaciiZagalni,
+			final String s_RekomendaciiPerconalni, int i_Vegeterianstvo, final int i_Ocinka, final int i_Error,
+			final String s_Dunamika) {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1000, 600);
@@ -72,7 +73,7 @@ public class DiagnostikaVusnovokVizyalizacia extends JFrame {
 
 		textPane_Rezultatu = new JTextPane();
 		scrollPane.setViewportView(textPane_Rezultatu);
-		textPane_Rezultatu.setText(s_RekomendaciiPerconalni);
+		textPane_Rezultatu.setText(s_IMT + s_RekomendaciiPerconalni);
 		textPane_Rezultatu.setForeground(Color.MAGENTA);
 		textPane_Rezultatu.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 		textPane_Rezultatu.setBackground(Color.WHITE);
@@ -93,6 +94,11 @@ public class DiagnostikaVusnovokVizyalizacia extends JFrame {
 								"Стан Вашого харчування критичний.\n" + "ТЕРМІНОВО займіться собою. Бережіть себе.");
 					}
 					d_Ocinka = true;
+				}
+				if (i_Error == 1) {
+					s_Error = s_Error
+							+ "Помилкове введення, рекомендовано пройти опитування ще раз.\nЗверніть увагу на рік народження.";
+					JOptionPane.showMessageDialog(null, s_Error);
 				}
 			}
 		});
@@ -118,7 +124,7 @@ public class DiagnostikaVusnovokVizyalizacia extends JFrame {
 		getContentPane().add(rB_Induvidualno);
 		rB_Induvidualno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textPane_Rezultatu.setText(s_RekomendaciiPerconalni);
+				textPane_Rezultatu.setText(s_IMT + s_RekomendaciiPerconalni);
 			}
 		});
 
@@ -128,6 +134,11 @@ public class DiagnostikaVusnovokVizyalizacia extends JFrame {
 		rB_Dunamika.setForeground(Color.ORANGE);
 		rB_Dunamika.setBounds(320, 10, 152, 25);
 		getContentPane().add(rB_Dunamika);
+		rB_Dunamika.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textPane_Rezultatu.setText(s_Dunamika);
+			}
+		});
 
 		b_Vegan = new JButton("Вегетеріанство");
 		b_Vegan.setForeground(new Color(255, 140, 0));
@@ -136,6 +147,12 @@ public class DiagnostikaVusnovokVizyalizacia extends JFrame {
 		if (i_Vegeterianstvo == 0) {
 			b_Vegan.setBounds(608, 469, 386, 49);
 		}
+		b_Vegan.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Vegeterianstvo("Дієтолог");
+				setVisible(false);
+			}
+		});
 
 		rB_Ditu = new JRadioButton("Для дітей");
 		rB_Ditu.setOpaque(false);
@@ -157,8 +174,22 @@ public class DiagnostikaVusnovokVizyalizacia extends JFrame {
 
 		JLabel l_Kartunka = new JLabel("");
 		l_Kartunka.setIcon(new ImageIcon("res/DiagnostukaRezultatu.jpg"));
-		l_Kartunka.setBounds(608, 44, 386, 386);
+		l_Kartunka.setBounds(608, 69, 386, 386);
 		getContentPane().add(l_Kartunka);
+
+		JLabel l_IMT = new JLabel("Індекс Маси Тіла  = " + d_IMT0);
+		l_IMT.setForeground(Color.BLUE);
+		l_IMT.setHorizontalAlignment(SwingConstants.CENTER);
+		l_IMT.setFont(new Font("Times New Roman", Font.ITALIC, 20));
+		l_IMT.setBounds(679, 10, 251, 25);
+		getContentPane().add(l_IMT);
+
+		l_IMT_komentar = new JLabel("Норма в межах з 18 до 25");
+		l_IMT_komentar.setHorizontalAlignment(SwingConstants.CENTER);
+		l_IMT_komentar.setForeground(Color.MAGENTA);
+		l_IMT_komentar.setFont(new Font("Times New Roman", Font.ITALIC, 15));
+		l_IMT_komentar.setBounds(622, 35, 362, 14);
+		getContentPane().add(l_IMT_komentar);
 
 		l_fon = new JLabel("");
 		l_fon.setForeground(Color.WHITE);
