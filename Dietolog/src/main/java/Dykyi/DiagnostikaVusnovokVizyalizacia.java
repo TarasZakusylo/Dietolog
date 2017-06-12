@@ -42,6 +42,7 @@ public class DiagnostikaVusnovokVizyalizacia extends JFrame {
 
 	private JLabel l_fon;
 	boolean d_Ocinka = false;
+	boolean d_Error = false;
 	String s_Error = "";
 	private JLabel l_IMT_komentar;
 
@@ -95,10 +96,11 @@ public class DiagnostikaVusnovokVizyalizacia extends JFrame {
 					}
 					d_Ocinka = true;
 				}
-				if (i_Error == 1) {
+				if (i_Error == 1 && d_Error == false) {
 					s_Error = s_Error
 							+ "Помилкове введення, рекомендовано пройти опитування ще раз.\nЗверніть увагу на рік народження.";
 					JOptionPane.showMessageDialog(null, s_Error);
+					d_Error = true;
 				}
 			}
 		});
